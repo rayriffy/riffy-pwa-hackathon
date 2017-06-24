@@ -5,7 +5,7 @@ toolbox.precache([
 ])
 
 toolbox.options.debug = true;
-toolbox.options.cache.name = "mindsharp-v1";
+toolbox.options.cache.name = "maimai-v1";
 
 self.addEventListener('install', function install() {
   self.skipWaiting();
@@ -33,3 +33,4 @@ toolbox.router.get("img/*.gif", toolbox.fastest)
 toolbox.router.get("img/*.svg", toolbox.fastest)
 toolbox.router.get("img/*.png", toolbox.fastest)
 toolbox.router.get("manifest.json", toolbox.networkFirst)
+toolbox.router.get("index.html", toolbox.networkFirst)
