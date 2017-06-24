@@ -1,11 +1,10 @@
 importScripts('js/sw-toolbox.js');
 
 toolbox.precache([
-  'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css', 'js/sw-toolbox.js', 'js/materialize.js','js/jquery.min.js','https://fonts.googleapis.com/icon?family=Material+Icons',
-  ,'/','index.html'
+  'index.html','https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css', 'js/sw-toolbox.js', 'js/materialize.js','js/jquery.min.js','https://fonts.googleapis.com/icon?family=Material+Icons'
 ])
 
-toolbox.options.debug = false;
+toolbox.options.debug = true;
 toolbox.options.cache.name = "mindsharp-v1";
 
 self.addEventListener('install', function install() {
