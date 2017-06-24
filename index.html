@@ -13,11 +13,19 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="#c2185b">
   <script src="js/companion.js" data-service-worker="sw.js"></script>
   <link rel="manifest" href="manifest.json">
+  <style>
+    .header {
+      font-weight: 300;
+    }
+    .light {
+      font-weight: 300;
+    }
+  </style>
 </head>
 <body>
   <nav class="nav-extended">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Logo</a>
+      <a href="#" class="brand-logo center"><img alt="logo" class="responsive-img" style="height: 64px;" src="https://firebasestorage.googleapis.com/v0/b/riffy-pwa-hackathon.appspot.com/o/logo_maimai.png?alt=media&token=64b9d4dc-8dfa-4c85-b2ae-47fdf1ea4535" /></a>
       <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="active"><a href="#">Home</a></li>
@@ -31,13 +39,20 @@
     </div>
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="#test1">Content 1</a></li>
-        <li class="tab"><a class="active" href="#test2">Content 2</a></li>
+        <li class="tab"><a class="active" href="#home">Home</a></li>
+        <li class="tab"><a href="#murasaki_p">MURASAKi PLUS</a></li>
       </ul>
     </div>
   </nav>
-  <div id="test1" class="col s12">Content 1</div>
-  <div id="test2" class="col s12">Content 2</div>
+  <div id="home" class="col s12">
+    <div class="container">
+      <h2 class="header">Welcome to maimai Wiki</h2>
+      <p>Hello, welcome to my very own maimai wiki. I will tell you everything about maimai that you need to know. :-)</p>
+    </div>
+  </div>
+  <div id="murasaki_p" class="col s12">
+
+  </div>
 
   <script src="js/materialize.js"></script>
 </body>
