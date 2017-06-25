@@ -13,6 +13,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="#c2185b">
   <script src="js/companion.js" data-service-worker="sw.js"></script>
   <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/jpg" href="https://firebasestorage.googleapis.com/v0/b/riffy-pwa-hackathon.appspot.com/o/favicon.png?alt=media&token=b9ef095c-fecf-42ab-a2b7-397061987ffe">
   <script src="js/notification.js"></script>
   <style>
     .header {
@@ -74,6 +75,26 @@
       messagingSenderId: "1037365123309"
     };
     firebase.initializeApp(config);
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    firebase.auth().getRedirectResult().then(function(result) {
+      if (result.credential) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // ...
+      }
+      // The signed-in user info.
+      var user = result.user;
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
   </script>
   <nav class="nav-extended pink lighten-1">
     <div class="nav-wrapper">
@@ -93,7 +114,7 @@
       <ul class="tabs tabs-transparent">
         <li class="tab"><a class="active" href="#home">Home</a></li>
         <li class="tab"><a href="#murasaki_p">maimai</a></li>
-        <li class="tab right"><a href="#signin">Sign In</a></li>
+        <li class="tab"><a href="#signin">Sign In</a></li>
       </ul>
     </div>
   </nav>
@@ -152,23 +173,13 @@
     <div class="">
       <div class="container">
         <div class="row">
-          <div class="col s12 l6 hide-on-med-and-down">
-            <img class="responsive-img" src="img/gal/9.jpg" />
-          </div>
-          <div class="col s12 l4 offset-l2">
+          <div class="col s12">
             <div class="row">
+              <br />
               <h4>Sign In</h4>
             </div>
             <div class="row">
-              <div class="input-field col s12">
-                <input id="dsk_usr" placeholder="Username" name="log_usr" required type="text" class="validate">
-              </div>
-              <div class="input-field col s12">
-                <input id="dsk_pas" placeholder="Password" name="log_pas" required type="password" class="validate">
-              </div>
-            </div>
-            <div class="row">
-              <button type="submit" name="input_check" value="LOGIN" class="btn light-blue waves-effect waves-light col s12 disabled">SIGN IN</button>
+              <a class="btn pink lighten-2" onclick="firebase.auth().signInWithRedirect(provider);">Sign in with google</a>
             </div>
           </div>
         </div>
